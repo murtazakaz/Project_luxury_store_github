@@ -1,50 +1,38 @@
-<!--
-  Generated template for the LoginPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<!-- <ion-header>
-
-    <ion-navbar>
-        <ion-title>login</ion-title>
-    </ion-navbar>
-
-</ion-header> -->
-
-
-<ion-content class="bg" padding>
-    <div style="margin-top:50%;text-align:center; color:white;">
-        <!-- <img style="margin-top: 80%;" src="assets/img/logo.png" /> -->
-        <!-- <p>Logo here</p> -->
-        <h3>Laundry 24/7</h3>
+<ion-content class="background">
+    <div align="center" style="margin-top: 18%;padding: 5%;">
+        <img src="img/logo.png" />
     </div>
+    <br>
+    <br>
+    <br>
 
-    <ion-list style="border-color:white">
 
-        <ion-item class="trans_item" style="border-color: white" no-line>
-            <ion-label style="color:white;" floating>Username</ion-label>
-            <ion-input style="color:white;" type="text"></ion-input>
+    <div align="center" style="margin-top: -7%;">
+        <ion-item class="bg">
+            <ion-label>
+                <!-- <ion-icon style="color:black" item-start name="mail"></ion-icon> -->
+            </ion-label>
+            <ion-input style="color:white" placeholder="Enter Email"></ion-input>
         </ion-item>
-
-        <ion-item class="trans_item" style="border-bottom-color: white">
-            <ion-label style="color:white;" floating>Password</ion-label>
-            <ion-input style="color:white;border-bottom-color: white" type="password"></ion-input>
+        <br>
+        <ion-item class="bg">
+            <ion-label>
+                <!-- <ion-icon style="color:black" item-start name="lock"></ion-icon> -->
+            </ion-label>
+            <ion-input style="color:white" placeholder="Enter Password"></ion-input>
         </ion-item>
-
-    </ion-list>
-
-    <div style="text-align:center; background:transparent;">
-        <button style="width:80%;" tappable (click)="loginpage()" color="primary" ion-button>Login</button>
+        <!-- <div align="center">
+            <ion-item style="background:transparent;margin-left:5%;">
+                <ion-label>Remember Password</ion-label>
+                <ion-checkbox></ion-checkbox>
+            </ion-item>
+        </div> -->
+<br>
+        <button class="btnclass" (click)="signin()" ion-button >Sign In</button>
+        <button class="btnclass" (click)="forgotpwd()" ion-button >Forgot Password</button>
+        <br>
+        <h5 style="color:white">Do not have an account?</h5>
+        <br>
+        <button (click)="signup()" class="btnclass" ion-button >Sign Up</button>
     </div>
-
 </ion-content>
-
-<ion-footer style="background-color: rgba(0, 0, 6, 0.51);">
-
-    <ion-toolbar style="background-color: rgba(0, 0, 6, 0.51);">
-        <ion-title style="text-align:center;background-color: rgba(0, 0, 6, 0.51);"> <a tappable (click)="registerpage()" style="color:white;">Don't have an account? <b>Register</b>  </a></ion-title>
-    </ion-toolbar>
-
-
-</ion-footer>

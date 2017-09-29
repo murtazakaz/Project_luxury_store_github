@@ -1,34 +1,27 @@
-import { HomePage } from '../home/home';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { RegisterPage } from '../register/register';
-
-/**
- * Generated class for the LoginPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
+import { NavController } from 'ionic-angular';
+import { SignUp } from "../signup/signup";
+import { ForgotPassword } from "../forgotpassword/forgotpassword";
+import { HomeScreen } from "../homescreen/homescreen";
 
 @Component({
-  selector: 'page-login',
-  templateUrl: 'login.html',
+  selector: 'login',
+  templateUrl: 'login.html'
 })
-export class LoginPage {
+export class Login {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  constructor(public navCtrl: NavController) {
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
   }
-  loginpage()
-  {
-    this.navCtrl.push(HomePage);
+  signup(){
+      this.navCtrl.push(SignUp)
   }
-  registerpage()
-  {
-    this.navCtrl.push(RegisterPage);
+  forgotpwd(){
+    this.navCtrl.push(ForgotPassword)
+    
+  }
+  signin(){
+    this.navCtrl.push(HomeScreen)
+    
   }
 }

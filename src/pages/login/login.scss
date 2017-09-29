@@ -1,3 +1,46 @@
-page-login {
-
+.bg {
+    width: 82%;
+    // border-radius: 37px;
+    background-color:rgba(255, 255, 255, 0.19);
+    height: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.55);
+    // border: 1px solid black;
 }
+
+.checkbox-ios .checkbox-checked {
+    border-color: white;
+    background-color: black;
+}
+
+.item-ios.item-block .item-inner {
+    padding-right: 8px;
+    border-bottom: 0px;
+}
+.button-ios.activated{
+    background-color: white;
+    color:black;
+    
+}
+.button-md.activated{
+    background-color: white;
+    color:black;
+}
+.btnclass {
+    width: 82%;
+    border-color: white;
+    color: white;
+    background: black;
+    height: 37px;
+}
+.text-input::-moz-placeholder {
+    color: white;
+  }
+  
+  .text-input:-ms-input-placeholder {
+    color: white;
+  }
+  
+  .text-input::-webkit-input-placeholder {
+    text-indent: 0;
+    color: white;
+  }

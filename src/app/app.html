@@ -1,19 +1,59 @@
-<ion-menu side="right" [content]="content">
+<ion-menu side="right" type="overlay" [content]="nav">
     <ion-header>
-        <ion-toolbar>
-            <ion-title>Menu</ion-title>
-        </ion-toolbar>
     </ion-header>
 
-    <ion-content>
-        <ion-list>
-            <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
-        {{p.title}}
-      </button>
-        </ion-list>
-    </ion-content>
+    <ion-content class="has-header">
+        <ion-list> 
+            <div align="center" style="background:black;height:100px ">
+                <img src="img/logo.png" style="margin-top: 4%;" />
+            </div>
+            <ion-item class="listTransparent" (click)="OnLoad(homepage)">
+                <ion-icon item-start><img width="100%" src="img/nav_home.png" /></ion-icon>
+                HOME
+            </ion-item>
+            <ion-item class="listTransparent" (click)="pageload(orderhistory)">
+                <ion-icon item-start><img width="100%" src="img/nav_orderhistory.png" /> </ion-icon>
+                ORDER HISTORY
+            </ion-item>
+            <ion-item class="listTransparent" (click)="pageload(wallet)">
+                <ion-icon item-start><img width="100%" src="img/nav_orderhistory.png" /></ion-icon>
+                WALLET
+            </ion-item>
+            <ion-item class="listTransparent" (click)="OnLoad(distancePage)">
+                <ion-icon item-start><img width="100%" src="img/nav_rate_the_app.png" /></ion-icon>
+                TELL A FRIEND
+            </ion-item>
+            <ion-item class="listTransparent">
+                <ion-icon item-start><img width="100%" src="img/nav_rate_the_app.png" /> </ion-icon>
+                RATE THE APP
+            </ion-item>
+            <ion-item class="listTransparent">
+                <ion-icon item-start><img width="100%" src="img/nav_rate_the_app.png" /> </ion-icon>
+                USER PROFILE
+            </ion-item>
+            <ion-item class="listTransparent" (click)="pageload(aboutus)">
+                <ion-icon item-start><img width="100%" src="img/nav_aboutus.png" /> </ion-icon>
+                ABOUT US
+            </ion-item>
+            <ion-item class="listTransparent" (click)="presentProfileModal()">
+                <ion-icon item-start><img width="100%" src="img/nav_aboutus.png" /> </ion-icon>
+                CONTACT US
+            </ion-item>
+            <ion-item class="listTransparent">
+                <ion-icon item-start><img width="100%" src="img/nav_terms_and_conditions.png" /> </ion-icon>
+                TERMS AND CONDITIONS
+            </ion-item>
+            <ion-item class="listTransparent" (click)="OnLoad(logout)">
+                <ion-icon item-start><img width="100%" src="img/nav_logout.png" /> </ion-icon>
+                LOGOUT
+            </ion-item>
 
+        </ion-list>
+
+
+
+
+    </ion-content>
 </ion-menu>
 
-<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
-<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
+<ion-nav [root]="rootPage" #nav></ion-nav>

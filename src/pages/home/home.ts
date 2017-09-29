@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController ,NavParams, MenuController  } from 'ionic-angular';
+import { NavController } from 'ionic-angular';
+import { Login } from "../login/login";
+import { SignUp } from "../signup/signup";
 
 @Component({
   selector: 'page-home',
@@ -7,10 +9,14 @@ import { NavController ,NavParams, MenuController  } from 'ionic-angular';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController,public navParams: NavParams,public menuCtrl: MenuController) {
+  constructor(public navCtrl: NavController) {
 
   }
-  openMenu() {
-    this.menuCtrl.open();
+  login(){
+    this.navCtrl.push(Login)
   }
+  signup(){
+    this.navCtrl.push(SignUp)
+}
+
 }
