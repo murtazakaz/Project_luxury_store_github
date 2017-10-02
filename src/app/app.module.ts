@@ -1,3 +1,4 @@
+import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -20,6 +21,10 @@ import { WalletPage } from '../pages/wallet/wallet';
 import { AboutusPage } from '../pages/aboutus/aboutus';
 import { ContactusPage } from '../pages/contactus/contactus';
 import { CategoriesPage } from '../pages/categories/categories';
+import { StoreCategoriesPage } from '../pages/store-categories/store-categories';
+import { StoreItemlistPage } from '../pages/store-itemlist/store-itemlist';
+import { StoreItemdetailsPage } from '../pages/store-itemdetails/store-itemdetails';
+
 
 @NgModule({ 
   declarations: [
@@ -38,10 +43,14 @@ import { CategoriesPage } from '../pages/categories/categories';
     WalletPage,
     AboutusPage,
     ContactusPage,
-    CategoriesPage
+    CategoriesPage,
+    StoreCategoriesPage,
+    StoreItemlistPage,
+    StoreItemdetailsPage
   ],
   imports: [
     BrowserModule,
+    HttpModule , 
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -61,11 +70,15 @@ import { CategoriesPage } from '../pages/categories/categories';
     WalletPage,
     AboutusPage,
     ContactusPage,
-    CategoriesPage
+    CategoriesPage,
+    StoreCategoriesPage,
+    StoreItemlistPage,
+    StoreItemdetailsPage
   ],
   providers: [
     StatusBar,  
     SplashScreen,
+    HttpModule, 
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

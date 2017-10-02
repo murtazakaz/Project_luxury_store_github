@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { HomePage } from '../home/home';
 import { Login } from '../login/login';
+import { StoreCategoriesPage } from '../store-categories/store-categories';
 
 /**
  * Generated class for the CategoriesPage page.
@@ -22,7 +23,9 @@ export class CategoriesPage {
   login(){
     this.navCtrl.push(Login)
   }
-  
+  store(){
+    this.navCtrl.push(StoreCategoriesPage);
+  }
   splash = true;
   ionViewDidLoad() { 
     //  this.tabBarElement.style.display = 'none';  (If not using Tab menu)

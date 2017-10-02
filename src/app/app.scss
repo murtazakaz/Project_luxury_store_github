@@ -20,3 +20,16 @@
 * {
     font-family: Lato;
 }
+
+a {
+    color: white;
+}
+
+.background-store {
+    background-image: url('../img/bg2.png');
+    width: 100%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}

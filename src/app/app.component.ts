@@ -18,6 +18,12 @@ import { WalletPage } from '../pages/wallet/wallet';
 import { AboutusPage } from '../pages/aboutus/aboutus';
 import { ContactusPage } from '../pages/contactus/contactus';
 import { CategoriesPage } from '../pages/categories/categories';
+import { StoreCategoriesPage } from '../pages/store-categories/store-categories';
+import { StoreItemlistPage } from '../pages/store-itemlist/store-itemlist';
+import { StoreItemdetailsPage } from '../pages/store-itemdetails/store-itemdetails';
+
+
+
 @Component({
   templateUrl: 'app.html'
 })
