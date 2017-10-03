@@ -7,11 +7,75 @@
 <ion-header>
     <ion-navbar color="themeClr">
         <ion-title>List</ion-title>
+        <!-- <div padding>
+            <ion-segment [(ngModel)]="near">
+                <ion-segment-button value="nearby">
+                    Nearby
+                </ion-segment-button>
+                <ion-segment-button value="desired">
+                    Desired Location
+                </ion-segment-button>
+            </ion-segment>
+        </div> -->
     </ion-navbar>
 </ion-header>
 
 
 <ion-content padding class="background-store">
+    <!-- <div [ngSwitch]="near">
+        <ion-list *ngSwitchCase="'nearby'">
+            <ion-item>
+                <div *ngFor="let item of itemarray">
+                    <ion-card>
+                        <img src="{{item.image1}}" />
+                        <ion-card-content>
+                            <ion-card-title align="center">
+                                {{item.name}}
+                            </ion-card-title>
+                            <ion-row style="border-bottom: 1px solid #e0e0e0">
+                                <ion-col col-3 align="center">
+                                    <ion-icon name="pricetag"></ion-icon>
+                                </ion-col>
+                                <ion-col col-1></ion-col>
+                                <ion-col col-8>$ {{item.price}}</ion-col>
+                            </ion-row>
+                            <ion-row style="border-bottom: 1px solid #e0e0e0">
+                                <ion-col col-3 align="center">
+                                    <ion-icon name="pin"></ion-icon>
+                                </ion-col>
+                                <ion-col col-1></ion-col>
+                                <ion-col col-8>{{item.address}}, {{item.city}}, {{item.country}}</ion-col>
+                            </ion-row>
+                            <ion-row style="border-bottom: 1px solid #e0e0e0">
+                                <ion-col col-3 align="center">
+                                    <ion-icon name="navigate"></ion-icon>
+                                </ion-col>
+                                <ion-col col-1></ion-col>
+                                <ion-col col-8>Get Direction</ion-col>
+                            </ion-row>
+                            <ion-row style="border-bottom: 1px solid #e0e0e0">
+                                <ion-col col-3 align="center">
+                                    <ion-icon name="information-circle"></ion-icon>
+                                </ion-col>
+                                <ion-col col-1></ion-col>
+                                <ion-col col-8><a style="color:#427feb" tappable (click)="itemdetails(item.id)">View Details</a></ion-col>
+                            </ion-row>
+                            <br>
+                        </ion-card-content>
+
+                    </ion-card>
+                </div>
+            </ion-item>
+            ...
+        </ion-list>
+
+        <ion-list *ngSwitchCase="'desired'">
+            <ion-item>
+                <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+            </ion-item>
+            ...
+        </ion-list>
+    </div> -->
     <div *ngFor="let item of itemarray">
         <ion-card>
             <img src="{{item.image1}}" />
