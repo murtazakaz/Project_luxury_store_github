@@ -1,4 +1,5 @@
-import { Http } from '@angular/http';
+ import { Http } from '@angular/http';
+//import { HTTP } from '@ionic-native/http';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import 'rxjs/add/operator/map';
@@ -6,6 +7,12 @@ import 'rxjs/add/operator/catch';
 import {Observable} from "rxjs/Observable";
 import { StoreItemdetailsPage } from '../store-itemdetails/store-itemdetails';
 import { LoadingController } from 'ionic-angular';
+import {ModalController} from 'ionic-angular';
+import {AutocompletePage} from '../autocomplete/autocomplete';
+import { Geolocation } from '@ionic-native/geolocation';
+import { StoreDirectionmapPage } from '../Store-directionmap/Store-directionmap';
+
+declare var google;
 /**
  * Generated class for the StoreItemlistPage page.
  *
@@ -18,37 +25,141 @@ import { LoadingController } from 'ionic-angular';
   templateUrl: 'store-itemlist.html',
 })
 export class StoreItemlistPage {
- public itemarray:any;
+  placelng: any;
+  placelat: any;
+  nearbyitemarray: any;
+  currentlng: number;
+  currentlat: number;
+  convertaddress: any;
+  longitude: any;
+  latitude: any;
+  public val: any;
+  public searchQuery: any;
+  public itemarray: any;
  public itemcategory:any;
  public itemid:any;
-  constructor(public navCtrl: NavController, public navParams: NavParams,private http: Http,public loadingCtrl: LoadingController) {
-   
+ public nearby:string = 'nearby';
+ public address:any;
+ 
+  constructor(public navCtrl: NavController, public navParams: NavParams,private http: Http,public loadingCtrl: LoadingController, private ModalCtrl:ModalController,private geolocation: Geolocation) {
     this.itemcategory = this.navParams.get('cat');
-   
+    console.log(this.itemcategory);
+
+    this.geolocation.getCurrentPosition().then((resp) => {
+      console.log(resp.coords.latitude);
+      console.log(resp.coords.longitude); 
+      this.currentlat =resp.coords.latitude;
+      this.currentlng =resp.coords.longitude;
+      let apiUrl = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location="+this.currentlat+","+this.currentlng+"&radius=1000&type=&keyword=clothing_store&key=AIzaSyD_HxOvY1-iyAZJzc9oVnrO10zrQGZxe3w";
+      
+      this.http.get(apiUrl).map(res => res.json()).subscribe(data => {
+           console.log(apiUrl);
+          // console.log(JSON.stringify(data));
+          loading.dismiss();
+        this.nearbyitemarray = data.results;
+        // console.log(this.itemarray);
+         console.log( this.nearbyitemarray);
+          });
+  
+
+     }).catch((error) => {
+       console.log('Error getting location', error);
+     });
+
+    
       const loading = this.loadingCtrl.create({
         content: 'Please wait...'
       });
       loading.present();
+
+
       
-  this.http.get('http://govirtualstore.com/app/iOS/fetchcategories.php?type='+this.itemcategory).map(res => res.json()).subscribe(data => {
-    console.log(data);
-    loading.dismiss();
-  this.itemarray = data;
-  // var i;
-  // for(i in this.itemarray)
-  // {
-  //   this.name= this.itemarray[i].name;
-  // }
-  });
+  //     let apirurl= 'http://govirtualstore.com/app/iOS/fetchcategories.php?type='+this.itemcategory;
+  // this.http.get("http://govirtualstore.com/app/iOS/fetchcategories.php?type="+this.itemcategory).map(res => res.json()).subscribe(data => {
+  //   console.log(data);
+  //  loading.dismiss();
+  // this.itemarray = data;
+  //  });
     
+
+        this.address = {
+          place: ''
+        };
+
   }
-  itemdetails(id)
-  { this.itemid=id;
-    this.navCtrl.push(StoreItemdetailsPage,{id: this.itemid});
+  itemdetails(place_id)
+  { this.itemid=place_id;
+    console.log(this.itemid);
+     this.navCtrl.push(StoreItemdetailsPage,{p_id: this.itemid});
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad StoreItemlistPage');
    
   }
+  getItems(ev: any) {
+    // Reset items back to all of the items
+   
+
+    // set val to the value of the searchbar
+    let val = ev.target.value;
+   console.log(val);
+    // if the value is an empty string don't filter the items
+    if (val && val.trim() != '') {
+      // this.items = this.items.filter((item) => {
+      //   return (item.toLowerCase().indexOf(val.toLowerCase()) > -1);
+      // })
+    }
+  }
+
+  showAddressModal () {
+    let modal = this.ModalCtrl.create(AutocompletePage);
+    let me = this;
+    modal.onDidDismiss(data => {
+      this.address.place = data;
+      this.convertaddress = data;
+      if(this.convertaddress != null && this.convertaddress != ""){
+      this.geoCode(this.convertaddress);}
+      console.log(this.address.place);
+    });
+    modal.present();
+  }
+
+  geoCode(convertaddress) {
+    let geocoder = new google.maps.Geocoder();
+    geocoder.geocode({ 'address':this.convertaddress }, (results, status) => {
+    this.latitude = results[0].geometry.location.lat();
+    this.longitude = results[0].geometry.location.lng();
+    console.log("lat: " + this.latitude + ", long: " + this.longitude);
+    
+    const loading = this.loadingCtrl.create({
+      content: 'Please wait...'
+    });
+    loading.present();
+
+    let apiUrl = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location="+this.latitude+","+this.longitude+"&radius=1000&type=clothing_store&keyword=&key=AIzaSyD_HxOvY1-iyAZJzc9oVnrO10zrQGZxe3w";
+    // let api = "http://govirtualstore.com/app/iOS/googleplacescurl.php";
+
+    // console.log(api);
+    this.http.get(apiUrl).map(res => res.json()).subscribe(data => {
+        // console.log(data);
+        // console.log(JSON.stringify(data));
+        loading.dismiss();
+      this.itemarray = data.results;
+      // console.log(this.itemarray);
+      // console.log( this.itemarray);
+        });
+   });
+ }
+
+ getDirections(plat,plng)
+ { 
+   this.placelat = plat;
+   this.placelng = plng;
+   
+   console.log("function ", this.placelat ," " , this.placelng)
+  this.navCtrl.push(StoreDirectionmapPage,{placelat: this.placelat,placelng: this.placelng,clat: this.currentlat,clng:this.currentlng});
+
+ }
+
 
 }

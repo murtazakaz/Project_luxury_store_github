@@ -12,26 +12,20 @@
 
 
 <ion-content padding class="background-store">
-    <div *ngFor="let item of itemdetail">
+    <div>
         <ion-card>
-            <img src="{{item.image1}}" />
+            <img src="{{photopath}}" />
             <ion-card-content>
-                <ion-card-title align="center">
-                    {{item.name}}
+                <ion-card-title align="center" *ngIf="placename">
+                    {{placename}}
                 </ion-card-title>
-                <ion-row style="border-bottom: 1px solid #e0e0e0">
-                    <ion-col col-3 align="center">
-                        <ion-icon name="pricetag"></ion-icon>
-                    </ion-col>
-                    <ion-col col-1></ion-col>
-                    <ion-col col-8>$ {{item.price}}</ion-col>
-                </ion-row>
-                <ion-row style="border-bottom: 1px solid #e0e0e0">
+
+                <ion-row style="border-bottom: 1px solid #e0e0e0" *ngIf="placeaddress">
                     <ion-col col-3 align="center">
                         <ion-icon name="pin"></ion-icon>
                     </ion-col>
                     <ion-col col-1></ion-col>
-                    <ion-col col-8>{{item.address}}, {{item.city}}, {{item.country}}</ion-col>
+                    <ion-col col-8>{{placeaddress}}</ion-col>
                 </ion-row>
                 <ion-row style="border-bottom: 1px solid #e0e0e0">
                     <ion-col col-3 align="center">
@@ -40,16 +34,22 @@
                     <ion-col col-1></ion-col>
                     <ion-col col-8>Get Direction</ion-col>
                 </ion-row>
-                <ion-row style="border-bottom: 1px solid #e0e0e0">
+                <!-- <ion-row style="border-bottom: 1px solid #e0e0e0" *ngIf="placeaddress">
                     <ion-col col-3 align="center">
                         <ion-icon name="information-circle"></ion-icon>
                     </ion-col>
                     <ion-col col-1></ion-col>
-                    <ion-col col-8>{{item.description}}</ion-col>
-                </ion-row>
+                    <ion-col col-8>{{placeaddress}}</ion-col>
+                </ion-row> -->
                 <br>
             </ion-card-content>
 
         </ion-card>
     </div>
 </ion-content>
+
+<ion-footer>
+    <ion-toolbar align="center">
+        <button ion-button style="background: black;">Go Luxurri Drive</button>
+    </ion-toolbar>
+</ion-footer>

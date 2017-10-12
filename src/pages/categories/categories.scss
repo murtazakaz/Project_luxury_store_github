@@ -1,5 +1,5 @@
 page-categories {
-    #custom-overlay { 
+    #custom-overlay {
         position: fixed;
         top: 0;
         right: 0;
@@ -14,7 +14,6 @@ page-categories {
         background-position: center center;
         background-size: cover;
     }
-    
     .flb {
         background-image: url('../img/background.png');
         width: 100%;
@@ -29,19 +28,15 @@ page-categories {
         align-items: center;
         justify-content: center;
     }
-    
     .Aligner-item {
         max-width: 50%;
     }
-    
     .Aligner-item--top {
         align-self: flex-start;
     }
-    
     .Aligner-item--bottom {
         align-self: flex-end;
     }
-    
     #custom-overlay img {
         display: block;
         margin: 0 auto;
@@ -50,7 +45,6 @@ page-categories {
         animation: animation 3100ms linear infinite both;
         animation-delay: 1s;
     }
-    
     @keyframes pulse {
         0% {
             opacity: 0;

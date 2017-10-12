@@ -17,15 +17,34 @@ import {Observable} from "rxjs/Observable";
   templateUrl: 'store-itemdetails.html',
 })
 export class StoreItemdetailsPage {
-public item_id:any;
+  photopath: any;
+  photo: any;
+  p: any;
+  photoarray: any;
+  public placeaddress: any;
+  public placename: any;
+  public place_id: any;
+  public item_id: any;
 public itemdetail:any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,private http: Http) {
-    this.item_id = this.navParams.get('id');
-    this.http.get('http://govirtualstore.com/app/iOS/details.php?name='+this.item_id).map(res => res.json()).subscribe(data => {
-     
-    this.itemdetail = data;
-    console.log(this.itemdetail);
+    this.place_id = this.navParams.get('p_id');
+    console.log(this.place_id)
+    let apiUrl = "https://maps.googleapis.com/maps/api/place/details/json?placeid="+this.place_id+"&key=AIzaSyD_HxOvY1-iyAZJzc9oVnrO10zrQGZxe3w"
+    this.http.get(apiUrl).map(res => res.json()).subscribe(data => {
+      //console.log(apiUrl)
+    //  console.log(data)
+    this.placename = data.result.name;
+    this.placeaddress = data.result.formatted_address;
+    this.photoarray = data.result.photos;
+    for (this.p in this.photoarray) {
+    // console.log(this.photoarray[this.p].photo_reference);
+    this.photo = this.photoarray[this.p].photo_reference;
+  }
+   this.photopath ="https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference="+this.photo+"&key=AIzaSyD_HxOvY1-iyAZJzc9oVnrO10zrQGZxe3w";
+    console.log(this.photopath);
+  //  this.itemdetail= JSON.stringify(data);
+  //   console.log(this.itemdetail.results);
     });
 
   }

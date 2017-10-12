@@ -1,8 +1,14 @@
-import { Component, NgZone } from '@angular/core';
-import { ViewController } from 'ionic-angular';
+import { Component ,NgZone} from '@angular/core';
+import { IonicPage, NavController,  ViewController } from 'ionic-angular';
 declare var google;
+/**
+ * Generated class for the AutocompletePage page.
+ *
+ * See http://ionicframework.com/docs/components/#navigation for more info
+ * on Ionic pages and navigation.
+ */
 
-@Component({
+@Component({ 
   selector: 'page-autocomplete',
   templateUrl: 'autocomplete.html',
 })
@@ -10,24 +16,28 @@ export class AutocompletePage {
 
   autocompleteItems;
   autocomplete;
+
+  latitude: number = 0;
+  longitude: number = 0;
+  geo: any
+
   service = new google.maps.places.AutocompleteService();
 
-  constructor(public viewCtrl: ViewController, private zone: NgZone) {
-
+  constructor (public viewCtrl: ViewController, private zone: NgZone) {
     this.autocompleteItems = [];
     this.autocomplete = {
       query: ''
     };
-
   }
-
 
   dismiss() {
     this.viewCtrl.dismiss();
   }
- 
+
   chooseItem(item: any) {
     this.viewCtrl.dismiss(item);
+    this.geo = item;
+    this.geoCode(this.geo);//convert Address to lat and long
   }
 
   updateSearch() {
@@ -36,7 +46,7 @@ export class AutocompletePage {
       return;
     }
     let me = this;
-    this.service.getPlacePredictions({ input: this.autocomplete.query, componentRestrictions: {country: 'AE'} }, function (predictions, status) {
+    this.service.getPlacePredictions({ input: this.autocomplete.query,  componentRestrictions: {country: 'PK'} }, function (predictions, status) {
       me.autocompleteItems = []; 
       me.zone.run(function () {
         predictions.forEach(function (prediction) {
@@ -44,6 +54,17 @@ export class AutocompletePage {
         });
       });
     });
+    
   }
+
+  //convert Address string to lat and long
+  geoCode(address:any) {
+    let geocoder = new google.maps.Geocoder();
+    geocoder.geocode({ 'address': address }, (results, status) => {
+    this.latitude = results[0].geometry.location.lat();
+    this.longitude = results[0].geometry.location.lng();
+    // alert("lat: " + this.latitude + ", long: " + this.longitude);
+   });
+ }
 
 }

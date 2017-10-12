@@ -1,6 +1,6 @@
 {
-  "name": "VoltasUser",
-  "app_id": "0e958c35",
+  "name": "project_waitTake_user_github",
+  "app_id": "",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}

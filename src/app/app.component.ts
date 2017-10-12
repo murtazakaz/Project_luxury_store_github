@@ -3,37 +3,23 @@ import { Platform, NavController, MenuController, ViewController, ModalControlle
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { HomePage } from '../pages/home/home';
-import { Login } from '../pages/login/login';
-import { SignUp } from '../pages/signup/signup';
-import { ForgotPassword } from '../pages/forgotpassword/forgotpassword';
-import { HomeScreen } from '../pages/homescreen/homescreen';
-import { OrdercarPage } from '../pages/ordercar/ordercar';
-import { ReservecarPage } from '../pages/reservecar/reservecar';
-import { OrderdetailsPage } from '../pages/orderdetails/orderdetails';
-import { ThankyouPage } from '../pages/thankyou/thankyou';
-import { OrderhistoryPage } from '../pages/orderhistory/orderhistory';
-import { OrderhistorydetailsPage } from '../pages/orderhistorydetails/orderhistorydetails';
-import { WalletPage } from '../pages/wallet/wallet';
-import { AboutusPage } from '../pages/aboutus/aboutus';
-import { ContactusPage } from '../pages/contactus/contactus';
 import { CategoriesPage } from '../pages/categories/categories';
 import { StoreCategoriesPage } from '../pages/store-categories/store-categories';
 import { StoreItemlistPage } from '../pages/store-itemlist/store-itemlist';
 import { StoreItemdetailsPage } from '../pages/store-itemdetails/store-itemdetails';
-
+import { MapPage } from '../pages/map/map';
+import {AutocompletePage} from '../pages/autocomplete/autocomplete';
+import { StoreDirectionmapPage } from '../pages/Store-directionmap/Store-directionmap';
 
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = CategoriesPage;
-  homepage=HomeScreen;
-  logout=HomePage;
-  orderhistory=OrderhistoryPage;
-  wallet=WalletPage;
-  aboutus=AboutusPage;
+  rootPage:any = StoreCategoriesPage  ;
+ 
+ 
+  
 //contactus=ContactusPage;
   @ViewChild('nav') nav: NavController;
   @ViewChild('View') viewCtrl: ViewController;
@@ -48,10 +34,7 @@ export class MyApp {
   closeModal() {
     this.viewCtrl.dismiss();
   }
- presentProfileModal() {
-   let profileModal = this.modalCtrl.create(ContactusPage);
-   profileModal.present();
- }
+ 
   pageload(page:any){
     this.nav.push(page);
     this.menuCtrl.close();

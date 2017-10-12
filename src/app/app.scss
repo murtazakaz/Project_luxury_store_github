@@ -34,7 +34,112 @@ a {
     background-size: cover;
 }
 
-@charset "UTF-8";
+.segment-ios .segment-button {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    width: 0;
+    height: 3.2rem;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #020202;
+    font-size: 1.3rem;
+    line-height: 3rem;
+    color: #f4f4f4;
+    background-color: transparent;
+}
+
+.segment-ios .segment-button.segment-activated {
+    color: #fff !important;
+    background-color: #020202;
+    opacity: 1;
+    -webkit-transition: 100ms all linear;
+    transition: 100ms all linear;
+}
+
+.segment-md .segment-button.activated,
+.segment-md .segment-button.segment-activated {
+    border-color: #020202;
+    background: #000;
+    opacity: 1;
+}
+
+.segment-md .segment-button {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    width: 0;
+    height: 4.2rem;
+    border: 0.1px solid #000;
+    // border-bottom-width: 2px;
+    border-bottom-style: solid;
+    border-bottom-color: rgba(0, 0, 0, 0.1);
+    font-size: 1.2rem;
+    font-weight: 500;
+    line-height: 4rem;
+    text-transform: uppercase;
+    color: white;
+    background-color: transparent;
+    opacity: 1;
+    -webkit-transition: 100ms all linear;
+    transition: 100ms all linear;
+    padding: 0 6px;
+}
+
+.card-md {
+    margin: 10px;
+    border-radius: 2px;
+    width: calc(100% - 20px);
+    font-size: 1.4rem;
+    background: rgba(34, 34, 34, 0.62);
+    color: white;
+    -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+
+.card-title-md {
+    display: block;
+    font-size: 2.4rem;
+    line-height: 1.2;
+    color: #f4f4f4;
+    background: black;
+    /* margin: 2px 0; */
+    padding: 8px 0;
+}
+
+.card-title-ios {
+    display: block;
+    font-size: 2.4rem;
+    line-height: 1.2;
+    color: #f4f4f4;
+    background: black;
+    /* margin: 2px 0; */
+    padding: 8px 0;
+}
+
+.card-ios {
+    margin: 10px;
+    border-radius: 2px;
+    width: calc(100% - 20px);
+    font-size: 1.4rem;
+    background: rgba(34, 34, 34, 0.62);
+    color: white;
+    -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+
+.footer-ios .toolbar-ios:first-child .toolbar-background-ios {
+    border-width: 0.55px 0 0;
+    background: rgba(34, 34, 34, 0.62);
+}
+
+.footer-md .toolbar-md:first-child .toolbar-background-md {
+    border-width: 0.55px 0 0;
+    background: rgba(34, 34, 34, 0.62);
+}
+
 
 /*!
  * animate.css -http://daneden.me/animate
