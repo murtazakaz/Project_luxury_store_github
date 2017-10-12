@@ -17,6 +17,7 @@ import {Observable} from "rxjs/Observable";
   templateUrl: 'store-itemdetails.html',
 })
 export class StoreItemdetailsPage {
+  googlemapurl: any;
   photopath: any;
   photo: any;
   p: any;
@@ -32,9 +33,10 @@ public itemdetail:any;
     console.log(this.place_id)
     let apiUrl = "https://maps.googleapis.com/maps/api/place/details/json?placeid="+this.place_id+"&key=AIzaSyD_HxOvY1-iyAZJzc9oVnrO10zrQGZxe3w"
     this.http.get(apiUrl).map(res => res.json()).subscribe(data => {
-      //console.log(apiUrl)
+      console.log(apiUrl)
     //  console.log(data)
     this.placename = data.result.name;
+    this.googlemapurl = data.result.url;
     this.placeaddress = data.result.formatted_address;
     this.photoarray = data.result.photos;
     for (this.p in this.photoarray) {
@@ -53,5 +55,5 @@ public itemdetail:any;
   ionViewDidLoad() {
     console.log('ionViewDidLoad StoreItemdetailsPage');
   }
-
+  
 }

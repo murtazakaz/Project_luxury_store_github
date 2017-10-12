@@ -27,12 +27,14 @@
                     <ion-col col-1></ion-col>
                     <ion-col col-8>{{placeaddress}}</ion-col>
                 </ion-row>
-                <ion-row style="border-bottom: 1px solid #e0e0e0">
+                <ion-row style="border-bottom: 1px solid #e0e0e0" *ngIf="googlemapurl">
                     <ion-col col-3 align="center">
                         <ion-icon name="navigate"></ion-icon>
                     </ion-col>
                     <ion-col col-1></ion-col>
-                    <ion-col col-8>Get Direction</ion-col>
+                    <a href={{googlemapurl}}>
+                        <ion-col col-8>Get Direction</ion-col>
+                    </a>
                 </ion-row>
                 <!-- <ion-row style="border-bottom: 1px solid #e0e0e0" *ngIf="placeaddress">
                     <ion-col col-3 align="center">
