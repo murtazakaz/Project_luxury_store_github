@@ -1,6 +1,5 @@
 <!--
   Generated template for the OrderdetailsPage page.
-
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
@@ -46,19 +45,19 @@
                             <ion-col col-1></ion-col>
                             <ion-col col-8>{{item.vicinity}}</ion-col>
                         </ion-row>
-                        <ion-row style="border-bottom: 1px solid rgba(244, 244, 244, 0.28);">
+                        <!-- <ion-row style="border-bottom: 1px solid rgba(244, 244, 244, 0.28);">
                             <ion-col col-3 align="center">
                                 <ion-icon name="navigate"></ion-icon>
                             </ion-col>
                             <ion-col col-1></ion-col>
-                            <ion-col col-8><a tappable (click)="getDirections(item.geometry.location.lat,item.geometry.location.lng)">Get Direction</a></ion-col>
-                        </ion-row>
+                            <ion-col col-8><a (tap)="getDirections(item.geometry.location.lat,item.geometry.location.lng)">Get Direction</a></ion-col>
+                        </ion-row> -->
                         <ion-row style="border-bottom: 1px solid rgba(244, 244, 244, 0.28);">
                             <ion-col col-3 align="center">
                                 <ion-icon name="information-circle"></ion-icon>
                             </ion-col>
                             <ion-col col-1></ion-col>
-                            <ion-col col-8><a tappable (click)="itemdetails(item.place_id)" style="color:#427feb">View Details</a></ion-col>
+                            <ion-col col-8><a (tap)="itemdetails(item.place_id)" style="color:#427feb">View Details</a></ion-col>
                         </ion-row>
                         <br>
                     </ion-card-content>
@@ -73,7 +72,7 @@
             <div id="search">
                 <ion-item class="animated bounceInDown">
                     <!-- <ion-searchbar (ionInput)="getItems($event)" placeholder="Search Location"></ion-searchbar> -->
-                    <ion-input tappable (click)="showAddressModal()" [(ngModel)]="address.place" type="text" placeholder="Pick an address"></ion-input>
+                    <ion-input (tap)="showAddressModal()" [(ngModel)]="address.place" type="text" placeholder="Pick an address"></ion-input>
                 </ion-item>
             </div>
             <!-- <ion-list>
@@ -103,19 +102,19 @@
                             <ion-col col-1></ion-col>
                             <ion-col col-8>{{item.vicinity}}</ion-col>
                         </ion-row>
-                        <ion-row style="border-bottom: 1px solid rgba(244, 244, 244, 0.28);">
+                        <!-- <ion-row style="border-bottom: 1px solid rgba(244, 244, 244, 0.28);">
                             <ion-col col-3 align="center">
                                 <ion-icon name="navigate"></ion-icon>
                             </ion-col>
                             <ion-col col-1></ion-col>
                             <ion-col col-8>Get Direction</ion-col>
-                        </ion-row>
+                        </ion-row> -->
                         <ion-row style="border-bottom: 1px solid rgba(244, 244, 244, 0.28);">
                             <ion-col col-3 align="center">
                                 <ion-icon name="information-circle"></ion-icon>
                             </ion-col>
                             <ion-col col-1></ion-col>
-                            <ion-col col-8><a tappable (click)="itemdetails(item.place_id)" style="color:#427feb">View Details</a></ion-col>
+                            <ion-col col-8><a (tap)="itemdetails(item.place_id)" style="color:#427feb">View Details</a></ion-col>
                         </ion-row>
                         <br>
                     </ion-card-content>
@@ -159,11 +158,10 @@
                         <ion-icon name="information-circle"></ion-icon>
                     </ion-col>
                     <ion-col col-1></ion-col>
-                    <ion-col col-8><a style="color:#427feb" tappable (click)="itemdetails(item.id)">View Details</a></ion-col>
+                    <ion-col col-8><a style="color:#427feb" (tap)="itemdetails(item.id)">View Details</a></ion-col>
                 </ion-row>
                 <br>
             </ion-card-content>
-
         </ion-card>
     </div> -->
 

@@ -7,7 +7,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { GoogleMaps } from '@ionic-native/google-maps';
 import { MyApp } from './app.component';
 import { Geolocation } from '@ionic-native/geolocation';
-
+import { IonicStorageModule } from '@ionic/storage';
 
 import { CategoriesPage } from '../pages/categories/categories';
 import { StoreCategoriesPage } from '../pages/store-categories/store-categories';
@@ -32,7 +32,8 @@ import {AutocompletePage} from '../pages/autocomplete/autocomplete';
   imports: [
     BrowserModule,
     HttpModule , 
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [

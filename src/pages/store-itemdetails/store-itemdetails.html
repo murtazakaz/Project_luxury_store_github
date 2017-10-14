@@ -32,7 +32,10 @@
                         <ion-icon name="navigate"></ion-icon>
                     </ion-col>
                     <ion-col col-1></ion-col>
-                    <a href={{googlemapurl}}>
+                    <!-- <a href={{googlemapurl}}>
+                        <ion-col col-8>Get Direction</ion-col>
+                    </a> -->
+                    <a tappable (click)="actionsheetmap(googlemapurl)">
                         <ion-col col-8>Get Direction</ion-col>
                     </a>
                 </ion-row>

@@ -1,4 +1,4 @@
- import { Http } from '@angular/http';
+import { Http } from '@angular/http';
 //import { HTTP } from '@ionic-native/http';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
@@ -25,6 +25,7 @@ declare var google;
   templateUrl: 'store-itemlist.html',
 })
 export class StoreItemlistPage {
+  keywords: string;
   placelng: any;
   placelat: any;
   nearbyitemarray: any;
@@ -44,13 +45,105 @@ export class StoreItemlistPage {
   constructor(public navCtrl: NavController, public navParams: NavParams,private http: Http,public loadingCtrl: LoadingController, private ModalCtrl:ModalController,private geolocation: Geolocation) {
     this.itemcategory = this.navParams.get('cat');
     console.log(this.itemcategory);
+    if (this.itemcategory == "amusement_park") {
+      
+      this.keywords = "park";
+  }
+  if (this.itemcategory == "bank") {
+    
+    this.keywords = "bank";
+}
+if (this.itemcategory == "beauty_salon") {
+  
+  this.keywords = "beauty";
+}
+if (this.itemcategory == "cafe") {
+  
+  this.keywords = "cafe";
+}
+if (this.itemcategory == "clothing_store") {
+  
+  this.keywords = "Clothing";
+}
+if (this.itemcategory == "dentist") {
+  
+  this.keywords = "dentist";
+}
+if (this.itemcategory == "doctor") {
+  
+  this.keywords = "clinic";
+}
+if (this.itemcategory == "gas_station") {
+  
+  this.keywords = "gas";
+}
+if (this.itemcategory == "gym") {
+  
+  this.keywords = "gym";
+}
+if (this.itemcategory == "hair_care") {
+  
+  this.keywords = "hair";
+}
+if (this.itemcategory == "hospital") {
+  
+  this.keywords = "hospital";
+}
+if (this.itemcategory == "insurance_agency") {
+  
+  this.keywords = "insurance";
+}
+if (this.itemcategory == "laundry") {
+  
+  this.keywords = "dryclean";
+}
+if (this.itemcategory == "mosque") {
+  
+  this.keywords = "masjid";
+}
+if (this.itemcategory == "movie_theater") {
+  
+  this.keywords = "movie";
+}
+if (this.itemcategory == "amusement_park") {
+  
+  this.keywords = "park";
+}
+if (this.itemcategory == "amusement_park") {
+  
+  this.keywords = "park";
+}
+if (this.itemcategory == "museum") {
+  
+  this.keywords = "museum";
+}
+if (this.itemcategory == "pharmacy") {
+  
+  this.keywords = "Pharmacies";
+}
+if (this.itemcategory == "restaurant") {
+  
+  this.keywords = "food";
+}
+if (this.itemcategory == "shoe_store") {
+  
+  this.keywords = "shoe";
+}
+if (this.itemcategory == "shopping_mall") {
+  
+  this.keywords = "mall";
+}
 
+if (this.itemcategory == "university") {
+  
+  this.keywords = "university";
+}
     this.geolocation.getCurrentPosition().then((resp) => {
       console.log(resp.coords.latitude);
       console.log(resp.coords.longitude); 
       this.currentlat =resp.coords.latitude;
       this.currentlng =resp.coords.longitude;
-      let apiUrl = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location="+this.currentlat+","+this.currentlng+"&radius=1000&type=&keyword=clothing_store&key=AIzaSyD_HxOvY1-iyAZJzc9oVnrO10zrQGZxe3w";
+      let apiUrl = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location="+this.currentlat+","+this.currentlng+"&radius=5000&type="+this.itemcategory+"&keyword="+this.keywords+"&key=AIzaSyD_HxOvY1-iyAZJzc9oVnrO10zrQGZxe3w";
       
       this.http.get(apiUrl).map(res => res.json()).subscribe(data => {
            console.log(apiUrl);
@@ -136,7 +229,7 @@ export class StoreItemlistPage {
     });
     loading.present();
 
-    let apiUrl = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location="+this.latitude+","+this.longitude+"&radius=1000&type=clothing_store&keyword=&key=AIzaSyD_HxOvY1-iyAZJzc9oVnrO10zrQGZxe3w";
+    let apiUrl = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location="+this.latitude+","+this.longitude+"&radius=1000&type="+this.itemcategory+"&keyword="+this.keywords+"&key=AIzaSyD_HxOvY1-iyAZJzc9oVnrO10zrQGZxe3w";
     // let api = "http://govirtualstore.com/app/iOS/googleplacescurl.php";
 
     // console.log(api);

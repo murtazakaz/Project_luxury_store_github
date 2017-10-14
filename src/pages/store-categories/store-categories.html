@@ -17,48 +17,116 @@
 
         <ion-row align="center" style="color:white;" class="list card animated rotateInUpRight">
             <ion-col col-4>
-                <a tappable (click)="itemlist('Clothing')"><img style="border-radius: 15px;" src="img/categories/men.jpg" /><span>Men Boutique</span></a>
+                <a (tap)="itemlist('amusement_park')"><img style="border-radius: 15px;" src="img/categories/park.jpg" /><span>Amusement Park</span></a>
             </ion-col>
 
             <ion-col col-4>
-                <a tappable (click)="itemlist('Clothing')"><img style="border-radius: 15px;" src="img/categories/women.jpg" /><span>Female Boutique</span></a>
+                <a (tap)="itemlist('bank')"><img style="border-radius: 15px;" src="img/categories/Bank.jpg" /><span>Bank</span></a>
             </ion-col>
             <ion-col col-4>
-                <a tappable (click)="itemlist('Dryclean')"><img style="border-radius: 15px;" src="img/categories/dryclean.jpg" /><span>Dry Cleaning</span></a>
+                <a (tap)="itemlist('beauty_salon')"><img style="border-radius: 15px;" src="img/categories/beauty.jpg" /><span>Beauty Parlour</span></a>
             </ion-col>
+
+        </ion-row>
+
+        <ion-row align="center" style="color:white;" class="list card animated rotateInUpRight">
+            <ion-col col-4>
+                <a (tap)="itemlist('cafe')"><img style="border-radius: 15px;" src="img/categories/cafe.jpg" /><span>Cafe</span></a>
+            </ion-col>
+            <ion-col col-4>
+                <a (tap)="itemlist('clothing_store')"><img style="border-radius: 15px;" src="img/categories/men.jpg" /><span>Clothing Store</span></a>
+            </ion-col>
+
+            <ion-col col-4>
+                <a (tap)="itemlist('movie_theater')"><img style="border-radius: 15px;" src="img/categories/movie.jpg" /><span>Cinema</span></a>
+            </ion-col>
+
+        </ion-row>
+
+        <ion-row align="center" style="color:white;" class="list card animated rotateInUpRight">
+            <ion-col col-4>
+                <a (tap)="itemlist('dentist')"><img style="border-radius: 15px;" src="img/categories/dentist.jpg" /><span>Dentist</span></a>
+            </ion-col>
+
+            <ion-col col-4>
+                <a (tap)="itemlist('doctor')"><img style="border-radius: 15px;" src="img/categories/doctor.jpg" /><span>Doctor</span></a>
+            </ion-col>
+
+            <ion-col col-4>
+                <a (tap)="itemlist('gas_station')"><img style="border-radius: 15px;" src="img/categories/gas.jpg" /><span>Gas Station</span></a>
+            </ion-col>
+
+        </ion-row>
+
+        <ion-row align="center" style="color:white;" class="list card animated rotateInUpRight">
+
+            <ion-col col-4>
+                <a (tap)="itemlist('gym')"><img style="border-radius: 15px;" src="img/categories/gym.jpg" /><span>Gym</span></a>
+            </ion-col>
+
+            <ion-col col-4>
+                <a (tap)="itemlist('hair_care')"><img style="border-radius: 15px;" src="img/categories/hairsalon.jpg" /><span>Hair Saloon</span></a>
+            </ion-col>
+            <ion-col col-4>
+                <a (tap)="itemlist('hospital')"><img style="border-radius: 15px;" src="img/categories/hospital.jpg" /><span>Hospital</span></a>
+            </ion-col>
+
+
+
+
+        </ion-row>
+
+        <ion-row align="center" style="color:white;" class="list card animated rotateInUpRight">
+            <ion-col col-4>
+                <a (tap)="itemlist('insurance_agency')"><img style="border-radius: 15px;" src="img/categories/insurance.jpg" /><span>Insurance Agency</span></a>
+            </ion-col>
+            <ion-col col-4>
+                <a (tap)="itemlist('laundry')"><img style="border-radius: 15px;" src="img/categories/dryclean.jpg" /><span>Laundry</span></a>
+            </ion-col>
+            <ion-col col-4>
+                <a (tap)="itemlist('mosque')"><img style="border-radius: 15px;" src="img/categories/mosque.jpg" /><span>Mosque</span></a>
+            </ion-col>
+
+
+
         </ion-row>
         <ion-row align="center" style="color:white;" class="list card animated slideInRight">
             <ion-col col-4>
-                <a tappable (click)="itemlist('HairSalon')"><img style="border-radius: 15px;" src="img/categories/hairsalon.jpg" /><span>Hair Salon</span></a>
+                <a (tap)="itemlist('museum')"><img style="border-radius: 15px;" src="img/categories/museum.jpg" /><span>Museum</span></a>
             </ion-col>
             <ion-col col-4>
-                <a tappable (click)="itemlist('Hospital')"><img style="border-radius: 15px;" src="img/categories/hospital.jpg" /><span>Hospitals</span></a>
+                <a (tap)="itemlist('pharmacy')"><img style="border-radius: 15px;" src="img/categories/pharmacy.jpg" /><span>Pharmacy</span></a>
             </ion-col>
             <ion-col col-4>
-                <a tappable (click)="itemlist()"><img style="border-radius: 15px;" src="img/categories/hotel.jpg" /><span>Hotels</span></a>
+                <a (tap)="itemlist('shoe_store')"><img style="border-radius: 15px;" src="img/categories/shoe.jpg" /><span>Shoe Store</span></a>
             </ion-col>
+
+
+
         </ion-row>
         <ion-row align="center" style="color:white;" class="list card animated fadeInLeftBig">
             <ion-col col-4>
-                <a tappable (click)="itemlist('Massage')"><img style="border-radius: 15px;" src="img/categories/spa.jpg" /><span>Spa</span></a>
+                <a (tap)="itemlist('shopping_mall')"><img style="border-radius: 15px;" src="img/categories/mall.jpg" /><span>Shopping Mall</span></a>
             </ion-col>
+
             <ion-col col-4>
-                <a tappable (click)="itemlist('Movie')"><img style="border-radius: 15px;" src="img/categories/movie.jpg" /><span>Cinemas</span></a>
+                <a (tap)="itemlist('travel_agency')"><img style="border-radius: 15px;" src="img/categories/travel.jpg" /><span>Travel Agency</span></a>
             </ion-col>
+            <!-- <ion-col col-4>
+                <a (tap)="itemlist('store')"><img style="border-radius: 15px;" src="img/categories/tailor.jpg" /><span>Tailor</span></a>
+            </ion-col> -->
             <ion-col col-4>
-                <a tappable (click)="itemlist('Pharmacy')"><img style="border-radius: 15px;" src="img/categories/pharmacy.jpg" /><span>Pharmacies</span></a>
+                <a (tap)="itemlist('restaurant')"><img style="border-radius: 15px;" src="img/categories/restaurant.jpg" /><span>Restaurant</span></a>
             </ion-col>
         </ion-row>
         <ion-row align="center" style="color:white;" class="list card animated rotateInUpLeft">
+
+
             <ion-col col-4>
-                <a tappable (click)="itemlist('Restaurant')"><img style="border-radius: 15px;" src="img/categories/restaurant.jpg" /><span>Restaurants</span></a>
+                <a (tap)="itemlist('university')"><img style="border-radius: 15px;" src="img/categories/university.jpg" /><span>University</span></a>
             </ion-col>
-            <ion-col col-4>
-                <a tappable (click)="itemlist('Supermarket')"><img style="border-radius: 15px;" src="img/categories/supermarket.jpg" /><span>Supermarkets</span></a>
-            </ion-col>
-            <ion-col col-4>
-                <a tappable (click)="itemlist('Tailor')"><img style="border-radius: 15px;" src="img/categories/tailor.jpg" /><span>Tailoring</span></a>
-            </ion-col>
+
         </ion-row>
+
     </ion-grid>
 </ion-content>
